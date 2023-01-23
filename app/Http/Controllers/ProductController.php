@@ -9,6 +9,11 @@ use Auth;
 
 class ProductController extends Controller
 {
+
+     /**
+     * create products end point
+     */
+
     public function createProduct(Request $request){
 
         $request->validate([
@@ -41,6 +46,9 @@ class ProductController extends Controller
 
     }
 
+     /**
+     * list all product with pagination and in DESC order
+     */
 
     public function allProduct() {
 
@@ -52,6 +60,10 @@ class ProductController extends Controller
            
         ], 200);
     }
+
+    /**
+     *   update Products created by owner of the products only
+     */
 
     public function updateProduct(Request $request, $id){
 
@@ -86,6 +98,10 @@ class ProductController extends Controller
         }
 
     }
+
+    /**
+     *   Delete Products created by owner of the products only
+     */
 
     public function deleteProduct(Request $request, $id){
 
