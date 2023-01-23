@@ -23,3 +23,4 @@ Route::post('/register', [AuthUserController::class, 'register']);
 
 Route::post('/login', [AuthUserController::class, 'login']);
 
+Route::middleware('auth:api')->get('/logout', [AuthUserController::class, 'logout']);

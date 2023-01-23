@@ -87,10 +87,17 @@ class AuthUserController extends Controller
                         'updated_at' => $user->updated_at,
                     ],
                 ]
-            ];
-            
-                    
+            ];               
+    }
 
-}
+    public function logout(Request $request)
+    {
+        // $request->user()->currentAccessToken()->delete();
+        $token = $request->user()->token();
+        $token->revoke();
+        return [
+            'message' => 'Successful Logout',
+        ];
+    }
 
 }
