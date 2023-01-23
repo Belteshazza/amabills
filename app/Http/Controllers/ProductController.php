@@ -41,6 +41,18 @@ class ProductController extends Controller
 
     }
 
+
+    public function allProduct() {
+
+        $allProduct = Product::all();        
+        
+        return response()->json([
+            'message'=>'successful',
+            '$allProduct' => $allProduct
+           
+        ], 200);
+    }
+
     public function updateProduct(Request $request, $id){
 
         $request->validate([
@@ -94,4 +106,7 @@ class ProductController extends Controller
         }
 
     }
+
+    
+
 }
