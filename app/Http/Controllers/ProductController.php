@@ -44,11 +44,11 @@ class ProductController extends Controller
 
     public function allProduct() {
 
-        $allProduct = Product::all();        
+        $allProduct = Product::orderBy('created_at', 'desc')->paginate(2);        
         
         return response()->json([
             'message'=>'successful',
-            '$allProduct' => $allProduct
+            'allProduct' => $allProduct
            
         ], 200);
     }
