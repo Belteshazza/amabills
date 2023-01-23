@@ -11,6 +11,10 @@ use Illuminate\Validation\ValidationException;
 
 class AuthUserController extends Controller
 {
+     /**
+     * create registration end point
+     */ 
+
     public function register(Request $request)
     {
         $request->validate([
@@ -45,6 +49,9 @@ class AuthUserController extends Controller
         }
     }
 
+    /**
+     * Login end point
+     */ 
 
     public function login(Request $request)
     {
@@ -89,6 +96,10 @@ class AuthUserController extends Controller
                 ]
             ];               
     }
+
+    /**
+     * logout end point
+     */ 
 
     public function logout(Request $request)
     {
