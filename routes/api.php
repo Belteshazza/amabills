@@ -30,4 +30,6 @@ Route::middleware('auth:api')->put('/updateProduct/{id}', [ProductController::cl
 
 Route::middleware('auth:api')->delete('/deleteProduct/{id}', [ProductController::class, 'deleteProduct']);
 
+Route::middleware('auth:api')->get('/allProduct', [ProductController::class, 'allProduct']);
+
 Route::middleware('auth:api')->get('/logout', [AuthUserController::class, 'logout']);
