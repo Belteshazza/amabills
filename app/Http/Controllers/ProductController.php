@@ -74,4 +74,24 @@ class ProductController extends Controller
         }
 
     }
+
+    public function deleteProduct(Request $request, $id){
+
+        $product = Product::where('id', $id)->first();
+
+        if(auth()->user()->id === $product->user_id){        
+
+        $product->delete();
+        
+        return response()->json([
+            'message' => 'Congratulations You have Successfully deleted a product',
+    
+        ]);
+
+        }else {
+
+            return response()->json(['message'=>'You do not own this product,so can not delete it'], 401);
+        }
+
+    }
 }
