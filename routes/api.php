@@ -24,6 +24,11 @@ Route::post('/register', [AuthUserController::class, 'register']);
 
 Route::post('/login', [AuthUserController::class, 'login']);
 
-Route::middleware('auth:api')->get('/logout', [AuthUserController::class, 'logout']);
+
 
 Route::middleware('auth:api')->post('/createProduct', [ProductController::class, 'createProduct']);
+
+Route::middleware('auth:api')->put('/updateProduct/{id}', [ProductController::class, 'updateProduct']);
+
+
+Route::middleware('auth:api')->get('/logout', [AuthUserController::class, 'logout']);
