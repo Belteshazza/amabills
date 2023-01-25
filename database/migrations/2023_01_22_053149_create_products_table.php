@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('description')->nullable();
             $table->integer('quantity')->nullable();
             $table->integer('unit_price')->nullable();
-            $table->bigInteger('amount');
+            $table->decimal('amount', 5, 2);
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
            
