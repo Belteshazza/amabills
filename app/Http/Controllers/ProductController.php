@@ -52,13 +52,14 @@ class ProductController extends Controller
 
     public function allProduct() {
 
-        $allProduct = Product::orderBy('created_at', 'desc')->paginate(2);        
-        
+        $userid = auth()->user()->id;
+        $product = Product::where('user_id', $userid)->orderBy('created_at', 'desc')->paginate(2);
+
         return response()->json([
             'message'=>'successful',
-            'allProduct' => $allProduct
+            'data' =>  $product
            
-        ], 200);
+        ], 200);        
     }
 
     /**
